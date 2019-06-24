@@ -4,11 +4,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
 
 module.exports = {
-    entry:'./src/js/main.js',
-    mode:'development',
-    devtool:'cheap-module-soure-map',
+    entry:{
+        main:'./src/react/index.js',
+    },
     output:{
-        path:path.resolve(__dirname,'dist'),
+        path:path.resolve('./dist'),
         filename:'js/[name].[hash].js'
     },
     module:{
@@ -29,17 +29,14 @@ module.exports = {
                 ]
             
         },
-    devServer:{
-        open:true,
-        contentBase:'./dist',
-        hot:true,
-        hotOnly:true
-    },
     plugins:[
-        new CleanWebpackPlugin(),
+        // new CleanWebpackPlugin(),
         new HtmlWebpackPlugin({
             template:'index.html',
-        }),
-        new webpack.HotModuleReplacementPlugin()
-    ]
+        })
+        
+    ],
+    optimization:{
+            usedExports:true
+        }
 }
