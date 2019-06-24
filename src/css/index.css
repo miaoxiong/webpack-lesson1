@@ -1,0 +1,10 @@
+html,body{
+    padding:0;
+    margin:0;
+}
+body{
+    /* background-color: green; */
+}
+div:nth-of-type(odd){
+    background-color:blue;
+}
